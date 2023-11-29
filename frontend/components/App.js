@@ -40,11 +40,22 @@ toggleCompletion = id => {
 }
 
 
+//this is the adding of inputs/fields and the submitting of a new Todo
+
+
+addTodo = (name) =>{
+  this.setState({
+  todos: this.state.todos.concat({id: getId(), completed: false, name })
+})
+}
+
+
+
   render() {
     return (
       <div>
         <TodoList todos={this.state.todos} toggleCompletion={this.toggleCompletion} />
-        <Form/>
+        <Form addTodo={this.addTodo} />
       </div>
     )
   }
